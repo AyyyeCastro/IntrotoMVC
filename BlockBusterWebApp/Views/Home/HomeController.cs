@@ -1,4 +1,5 @@
 ﻿using Abp.Web.Mvc.Models;
+using BlockBuster;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -47,6 +48,12 @@ namespace BlockBusterWebApp.Pages
             string[] cityList = { "Red City", "Blue City", "Yellow City", "Green City", "Beige City"};
             ViewBag.Cities = cityList;
             return View();
+        }
+
+        public IActionResult Movies()
+        {
+            var MovieList = BlockBusterBasicFunctions.GetAllMovies();
+            return View(MovieList);
         }
     }
 }
